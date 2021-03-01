@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Calculate Your Pay</title>
+</head>
+<body>
+    
+    <span id="normal-wage">Your normal wage is </span><br>
+    <span id="overtime-wage">Your overtime pay rate is </span><br>
+    <span id="hours-worked">The amount of hours you worked were </span><br>
+    <span id="compensation-weekly">The amount of money you earned in one week, before taxes, was </span><br>
+    <span id="compensation-biweekly">The amount of money you earned in two weeks, before taxes, was </span><br>
+    <span id="compensation-monthly">The amount of money you earned in a month, before taxes, was</span><br>
+    <span id="compensation-yearly">The amount of money you earned in a year, before taxes, was</span>
+
+    <button id="input-pay-rate" onclick="paymentCalculations()">Enter your normal pay rate</button>
+<script type="text/javascript">
+        function paymentCalculations() {
+
+            const normalPayRate = prompt("Normal pay rate?");
+            const overtimeRate = normalPayRate * 1.5;
+            const hoursWorked = prompt("How many hours did you work?");
+            const weeklyIncome = normalPayRate * hoursWorked;
+            const biweeklyIncome = weeklyIncome * 2;
+            const monthlyIncome = normalPayRate * 174;
+            const yearlyIncome = normalPayRate * 2080;
+
+
+            document.getElementById("normal-wage").innerHTML = "Your normal wage is " + normalPayRate;
+            document.getElementById("overtime-wage").innerHTML = "Your overtime wage is " + overtimeRate;
+            document.getElementById("hours-worked").innerHTML = "The amount of hours you worked were " + hoursWorked;
+            document.getElementById("compensation-weekly").innerHTML = "The amount of money you earned in one week, before taxes, was " + weeklyIncome;
+            document.getElementById("compensation-biweekly").innerHTML = "The amount of money you earned in two weeks, before taxes, was " + biweeklyIncome;
+            document.getElementById("compensation-monthly").innerHTML = "The amount of money you earned in a month, before taxes, was " + monthlyIncome;
+            document.getElementById("compensation-yearly").innerHTML = "The amount of money you earned in a year, before taxes, was " + yearlyIncome;
+        }
+    </script>
+</body>
+</html>
