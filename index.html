@@ -12,26 +12,33 @@
 
     <script type="text/javascript">
         function calculations() {
-            let normalPayRate = prompt("What's your pay rate?");
-            const overtimePayRate = normalPayRate * 1.5;
-            let overtimeHours;
-            let hoursWorked = prompt("How many hours did you work?");
-            const WeeklyIncome = normalPayRate * 40;
-            const BiWeeklyIncome = WeeklyIncome * 2;
-            const MonthlyIncome = WeeklyIncome * 4.345;
-            const YearlySalary = WeeklyIncome * 52;
+            let payrate = prompt("Enter regular pay rate.");
+            let otrate = payrate * 1.5;
+            let hoursWorked = prompt("How many regular labor hours do you have? Do not put more than 40.");
+            let otHours = prompt("How many overtime hours do you have?");
+            let regularIncome = payrate * hoursWorked;
+            let otIncome = otrate * otHours;
+            let totalWeeklyIncome = regularIncome + otIncome;
+        
 
+            if (otHours == 0) {
 
-            if (hoursWorked == "40" && overTimeHours == "0") {
-
-                document.getElementById("normal-pay-rate").innerHTML = normalPayRate;
-                document.getElementById("overtime-pay-rate").innerHTML = overtimePayRate;
+                document.getElementById("normal-pay-rate").innerHTML = payrate;
                 document.getElementById("hours-worked-daily").innerHTML = hoursWorked;
-                document.getElementById("weekly-pay").innerHTML = WeeklyIncome;
-                document.getElementById("biweekly-pay").innerHTML = BiWeeklyIncome;
-                document.getElementById("monthly-pay").innerHTML = MonthlyIncome;
-                document.getElementById("yearly-pay").innerHTML = YearlySalary;
+                document.getElementById("weekly-pay").innerHTML = regularIncome;
+                document.getElementById("biweekly-pay").innerHTML = regularIncome * 2;
+                document.getElementById("monthly-pay").innerHTML = regularIncome * 4.345;
+                document.getElementById("yearly-pay").innerHTML = regularIncome * 52;
+            } else {
+
+                document.getElementById("normal-pay-rate").innerHTML = payrate;
+                document.getElementById("hours-worked-daily").innerHTML = hoursWorked;
+                document.getElementById("weekly-pay").innerHTML = totalWeeklyIncome;
+                document.getElementById("biweekly-pay").innerHTML = totalWeeklyIncome * 2;
+                document.getElementById("monthly-pay").innerHTML = totalWeeklyIncome * 4.345;
+                document.getElementById("yearly-pay").innerHTML = totalWeeklyIncome * 52;
             }
+        
         }
     </script>
 
