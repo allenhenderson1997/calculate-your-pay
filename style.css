@@ -13,10 +13,39 @@ span {
     flex-direction: column;
 }
 
-button {
+#button-for-calculations {
 
     background-color: lime;
     text-align: center;
     border-radius: 2px;
     font-size: 40px;
+    width: 720px;
+    font-family: Tahoma;
+    font-weight: bold;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.your-pay {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.your-pay span {
+
+    padding-bottom: 60px;
+    margin: 10px;
+}
+
+.your-pay span:first-child {
+
+    margin-top: 30px;
+}
+
+.your-pay span:last-child {
+
+    padding-bottom: 0;
 }

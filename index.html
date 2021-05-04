@@ -8,36 +8,52 @@
     <title>Calculate Your Pay</title>
 </head>
 <body>
-    
-    <span id="normal-wage">Your normal wage is </span><br>
-    <span id="overtime-wage">Your overtime pay rate is </span><br>
-    <span id="hours-worked">The amount of hours you worked were </span><br>
-    <span id="compensation-weekly">The amount of money you earned in one week, before taxes, was </span><br>
-    <span id="compensation-biweekly">The amount of money you earned in two weeks, before taxes, was </span><br>
-    <span id="compensation-monthly">The amount of money you earned in a month, before taxes, was</span><br>
-    <span id="compensation-yearly">The amount of money you earned in a year, before taxes, was</span>
+    <div id="button-for-calculations" onclick="calculations()">Calculate your paycheck</div>
 
-    <button id="input-pay-rate" onclick="paymentCalculations()">Enter your normal pay rate</button>
-<script type="text/javascript">
-        function paymentCalculations() {
-
-            const normalPayRate = prompt("Normal pay rate?");
-            const overtimeRate = normalPayRate * 1.5;
-            const hoursWorked = prompt("How many hours did you work?");
-            const weeklyIncome = normalPayRate * hoursWorked;
-            const biweeklyIncome = weeklyIncome * 2;
-            const monthlyIncome = normalPayRate * 174;
-            const yearlyIncome = normalPayRate * 2080;
+    <script type="text/javascript">
+        function calculations() {
+            let normalPayRate = prompt("What's your pay rate?");
+            const overtimePayRate = normalPayRate * 1.5;
+            let overtimeHours;
+            let hoursWorked = prompt("How many hours did you work?");
+            const WeeklyIncome = normalPayRate * 40;
+            const BiWeeklyIncome = WeeklyIncome * 2;
+            const MonthlyIncome = WeeklyIncome * 4.345;
+            const YearlySalary = WeeklyIncome * 52;
 
 
-            document.getElementById("normal-wage").innerHTML = "Your normal wage is " + normalPayRate;
-            document.getElementById("overtime-wage").innerHTML = "Your overtime wage is " + overtimeRate;
-            document.getElementById("hours-worked").innerHTML = "The amount of hours you worked were " + hoursWorked;
-            document.getElementById("compensation-weekly").innerHTML = "The amount of money you earned in one week, before taxes, was " + weeklyIncome;
-            document.getElementById("compensation-biweekly").innerHTML = "The amount of money you earned in two weeks, before taxes, was " + biweeklyIncome;
-            document.getElementById("compensation-monthly").innerHTML = "The amount of money you earned in a month, before taxes, was " + monthlyIncome;
-            document.getElementById("compensation-yearly").innerHTML = "The amount of money you earned in a year, before taxes, was " + yearlyIncome;
+            if (hoursWorked == "40" && overTimeHours == "0") {
+
+                document.getElementById("normal-pay-rate").innerHTML = normalPayRate;
+                document.getElementById("overtime-pay-rate").innerHTML = overtimePayRate;
+                document.getElementById("hours-worked-daily").innerHTML = hoursWorked;
+                document.getElementById("weekly-pay").innerHTML = WeeklyIncome;
+                document.getElementById("biweekly-pay").innerHTML = BiWeeklyIncome;
+                document.getElementById("monthly-pay").innerHTML = MonthlyIncome;
+                document.getElementById("yearly-pay").innerHTML = YearlySalary;
+            }
         }
     </script>
+
+    <div class="your-pay">
+        <div id="left-column">
+            <span>Pay rate: </span>
+            <!-- <span>Overtime pay: </span> -->
+            <span>Hours worked: </span>
+            <span>Weekly Income: </span>
+            <span>Biweekly Income: </span>
+            <span>Monthly Income: </span>
+            <span>Yearly Salary: </span>
+        </div>
+        <div id="right-column">
+            <span id="normal-pay-rate">N/A</span>
+            <!-- <span id="overtime-pay-rate">N/A</span> -->
+            <span id="hours-worked-daily">N/A</span>
+            <span id="weekly-pay">$</span>
+            <span id="biweekly-pay">$</span>
+            <span id="monthly-pay">$</span>
+            <span id="yearly-pay">$</span>
+        </div>
+    </div>
 </body>
 </html>
